@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ViewFlipper
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/viewflipper"
+        android:flipInterval="2000"
+        android:autoStart="true">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/imageview1"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/imageview2"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/imageview3"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/imageview4"
+            android:scaleType="centerCrop"/>
+    </ViewFlipper>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/img1"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/img2"
+        android:visibility="invisible"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/img3"
+        android:visibility="invisible"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/img4"
+        android:visibility="invisible"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewflipper"
+        android:text="UPDATE"
+        android:textColor="@android:color/black"
+        android:textSize="25dp"
+        android:onClick="update"/>
+
+</RelativeLayout>
