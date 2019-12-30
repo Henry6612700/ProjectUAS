@@ -25,42 +25,26 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private static final int MY_REQUEST_CODE = 7117;
     List<AuthUI.IdpConfig> providers;
-    Button btn_sign_out;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn_sign_out=findViewById(R.id.btn_sign_out);
-        btn_sign_out.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AuthUI.getInstance()
-                        .signOut(MainActivity.this)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                btn_sign_out.setEnabled(false);
-                                showSignInOption();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(MainActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
-
         //init the providers
         providers= Arrays.asList(
                 new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.PhoneBuilder().build(),
+//                new AuthUI.IdpConfig.PhoneBuilder().build(),
 //                new AuthUI.IdpConfig.FacebookBuilder().build(),
                 new AuthUI.IdpConfig.GoogleBuilder().build()
         );
 
         showSignInOption();
+
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null){
+            startActivity(new Intent(MainActivity.this,SampleActivity.class));
+            finish();
+        }
+
     }
 
     private void showSignInOption() {
@@ -68,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 AuthUI.getInstance().createSignInIntentBuilder()
                 .setAvailableProviders(providers)
                 .setTheme(R.style.MyTheme)
+                .setLogo(R.drawable.iconfinder_location)
                 .build(),MY_REQUEST_CODE
         );
     }
@@ -80,8 +65,9 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode==RESULT_OK){
                 //Get user
                 FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-                Toast.makeText(this,""+user.getEmail(),Toast.LENGTH_SHORT).show();
-                btn_sign_out.setEnabled(true);
+//                Toast.makeText(this,""+user.getEmail()+" , name : "+user.getDisplayName(),Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this,SampleActivity.class));
+                finish();
             }
             else{
                 Toast.makeText(this,""+response.getError().getMessage(),Toast.LENGTH_SHORT).show();
