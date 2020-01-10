@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">My Application1</string>
-    <string name="facebook_application" translatable="false">569162710595055</string>
-    <string name="facebook_login_protocol_scheme" translatable="false">fb569162710595055</string>
+    <string name="app_name">Medan Site</string>
+    <string name="map_key" translatable="false">AIzaSyCgiC_QY5PIUalIUxn2zSzPv_nm1fOXQGg</string>
 </resources>
