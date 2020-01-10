@@ -1,10 +1,12 @@
 package com.example.myapplication1;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,12 +21,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
-public class SampleActivity extends AppCompatActivity {
+public class UserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sample);
+        setContentView(R.layout.activity_user);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         TextView mEmail = findViewById(R.id.email);
@@ -38,11 +40,17 @@ public class SampleActivity extends AppCompatActivity {
         mNama.setText(user.getDisplayName());
         Picasso.get().load(photo).into(iProfile);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Profil");
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AuthUI.getInstance()
-                        .signOut(SampleActivity.this)
+                        .signOut(UserActivity.this)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -52,11 +60,22 @@ public class SampleActivity extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(SampleActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UserActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
                     }
                 });
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == android.R.id.home){
+            //akhiri aktivitas
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

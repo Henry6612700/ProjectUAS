@@ -1,49 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SampleActivity">
+    android:orientation="vertical"
+    tools:context=".UserActivity"
+    android:padding="20dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageProfile"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginBottom="10dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/iconfinder_location"/>
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:layout_below="@+id/imageProfile"
-        android:layout_centerVertical="true"
+        android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/nama"
         android:textSize="20sp"
         android:textColor="@android:color/black"
-        tools:text="Nama user"
-        android:gravity="center"/>
+        tools:text="Nama user"/>
 
     <TextView
         android:layout_marginTop="10dp"
         android:layout_below="@id/nama"
-        android:layout_centerVertical="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/email"
         android:textSize="20sp"
         tools:text="Email user"
-        android:gravity="center"/>
+        android:gravity="center_horizontal"/>
 
-    <Button
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/email"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_sign_out"
-        android:text="Sign Out"
-        android:layout_centerHorizontal="true"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp">
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_sign_out"
+            android:text="Keluar"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>
