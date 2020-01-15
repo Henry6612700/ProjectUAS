@@ -36,6 +36,8 @@ public class CurrentLocation extends FragmentActivity implements OnMapReadyCallb
         fetchLastLocation();
     }
     private void fetchLastLocation() {
+
+//        Check permission
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this,new String[]
                     {Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_CODE);
@@ -73,6 +75,11 @@ public class CurrentLocation extends FragmentActivity implements OnMapReadyCallb
             case REQUEST_CODE:
                 if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     fetchLastLocation();
+                }
+//                Check if permission denied
+                else {
+                    Toast.makeText(this, "Izinkan dong :)", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
                 break;
         }

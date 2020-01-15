@@ -24,7 +24,9 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_location);mBtn = findViewById(R.id.btnIntent);
+        setContentView(R.layout.activity_location);
+
+        mBtn = findViewById(R.id.btnIntent);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -53,6 +55,7 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
         });
     }
 
+//    Untuk handle kalau ditekan back, akan langsung kembali ke home
     public void onBackPressed(){
         Intent a = new Intent(Intent.ACTION_MAIN);
         a.addCategory(Intent.CATEGORY_HOME);
