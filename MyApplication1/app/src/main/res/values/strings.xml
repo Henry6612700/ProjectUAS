@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Medan Site</string>
     <string name="map_key" translatable="false">AIzaSyCgiC_QY5PIUalIUxn2zSzPv_nm1fOXQGg</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</string>
 </resources>
