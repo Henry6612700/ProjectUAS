@@ -3,6 +3,7 @@ package com.example.myapplication1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,8 +41,9 @@ public class UserActivity extends AppCompatActivity {
         mNama.setText(user.getDisplayName());
         Picasso.get().load(photo).into(iProfile);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Profil");
+        Toolbar toolbar = findViewById(R.id.toolbarProfile);
+        toolbar.setTitle("Profil");
+        setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

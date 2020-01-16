@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int MY_REQUEST_CODE = 7117;
+    private static final int MY_REQUEST_CODE = 77;
     List<AuthUI.IdpConfig> providers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(
                 AuthUI.getInstance().createSignInIntentBuilder()
                 .setAvailableProviders(providers)
-                .setTheme(R.style.MyTheme)
-                .setLogo(R.drawable.iconfinder_location)
+                .setTheme(R.style.FirebaseLoginTheme)
+                .setLogo(R.drawable.firebase_logo)
                 .build(),MY_REQUEST_CODE
         );
     }

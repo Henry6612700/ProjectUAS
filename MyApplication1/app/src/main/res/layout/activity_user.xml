@@ -5,8 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".UserActivity"
-    android:padding="20dp">
+    tools:context=".UserActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarProfile"
+        android:background="@color/colorPrimary"
+        app:title="@string/app_name"
+        app:titleTextColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageProfile"
