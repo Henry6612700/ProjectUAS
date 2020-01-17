@@ -22,8 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.3"
-        android:orientation="vertical"
-        android:layout_marginBottom="30dp">
+        android:orientation="vertical">
         <TextView
             android:id="@+id/txtOB1"
             android:layout_width="wrap_content"

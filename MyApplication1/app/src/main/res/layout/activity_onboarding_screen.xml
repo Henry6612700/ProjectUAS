@@ -16,8 +16,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="5dp">
-
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
             android:id="@+id/dots"
@@ -37,7 +36,6 @@
             android:onClick="getStarted"
             android:layout_centerInParent="true"
             android:text="GET STARTED"
-            android:layout_marginBottom="80dp"
             android:textColor="@android:color/white"/>
 
     </RelativeLayout>
