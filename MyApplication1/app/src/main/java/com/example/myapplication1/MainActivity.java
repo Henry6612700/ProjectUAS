@@ -3,8 +3,12 @@ package com.example.myapplication1;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
@@ -22,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        statusBarTranslucent(this);
 
         //init the providers
         providers= Arrays.asList(
@@ -34,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         showSignInOption();
 
         if(FirebaseAuth.getInstance().getCurrentUser()!=null){
-            startActivity(new Intent(MainActivity.this, LocationActivity.class));
+            startActivity(new Intent(MainActivity.this, DashboardActivity.class));
             finish();
         }
 
@@ -59,12 +64,20 @@ public class MainActivity extends AppCompatActivity {
                 //Get user
                 FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
 //                Toast.makeText(this,""+user.getEmail()+" , name : "+user.getDisplayName(),Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, LocationActivity.class));
+                startActivity(new Intent(MainActivity.this, DashboardActivity.class));
                 finish();
             }
             else{
                 Toast.makeText(this,""+response.getError().getMessage(),Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    //        Untuk transparan dengan latar belakang
+    public static void statusBarTranslucent(Activity activity){
+        Window window = activity.getWindow();
+        window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 }

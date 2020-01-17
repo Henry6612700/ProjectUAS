@@ -35,7 +35,7 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),CurrentLocation.class));
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
 
@@ -48,7 +48,7 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if (item.getItemId()==R.id.miProfile){
-                    startActivity(new Intent(getApplicationContext(),UserActivity.class));
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 }
                 return false;
             }
