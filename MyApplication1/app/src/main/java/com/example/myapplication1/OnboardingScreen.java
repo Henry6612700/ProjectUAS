@@ -48,7 +48,7 @@ public class OnboardingScreen extends AppCompatActivity {
 
 //        Untuk handle jika sudah ada user yang login
         if(FirebaseAuth.getInstance().getCurrentUser()!=null){
-            startActivity(new Intent(OnboardingScreen.this, LocationActivity.class));
+            startActivity(new Intent(OnboardingScreen.this, DashboardActivity.class));
             finish();
         }
         animateSlider();

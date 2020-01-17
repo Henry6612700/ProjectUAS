@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Medan Site</string>
-    <string name="map_key" translatable="false">AIzaSyCgiC_QY5PIUalIUxn2zSzPv_nm1fOXQGg</string>
+    <string name="map_key" translatable="false">AIzaSyAnO0V2326U55nTTEFOSxSYNjDqCSmrlcw</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

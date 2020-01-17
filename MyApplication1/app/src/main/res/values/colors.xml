@@ -6,4 +6,8 @@
     <color name="imagebackground">#960682FE</color>
     <color name="imagebackgroundCurrent">#0682FE</color>
     <color name="colorBg">#E9F2FA</color>
+    <color name="home">#5B37B7</color>
+    <color name="compass">#C9379D</color>
+    <color name="search">#E6A919</color>
+    <color name="profile">#1194AA</color>
 </resources>
