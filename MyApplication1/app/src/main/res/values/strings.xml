@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Medan Site</string>
     <string name="map_key" translatable="false">AIzaSyAnO0V2326U55nTTEFOSxSYNjDqCSmrlcw</string>
-    <string name="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</string>
+    <string name="lorem">Find interesting information about the sights and historical places around you</string>
+    <string name="lorem2">Find the best route you need</string>
+    <string name="lorem3">Historical things already waiting for you</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

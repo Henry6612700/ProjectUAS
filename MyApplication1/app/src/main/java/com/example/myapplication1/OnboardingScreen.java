@@ -1,10 +1,5 @@
 package com.example.myapplication1;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +15,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -77,8 +77,8 @@ public class OnboardingScreen extends AppCompatActivity {
         List<Adapter.Slide> slides = new ArrayList<>();
 
         slides.add(new Adapter.Slide(R.drawable.img1,"Let's Travelling", getString(R.string.lorem)));
-        slides.add(new Adapter.Slide(R.drawable.img2,"Navigation", getString(R.string.lorem)));
-        slides.add(new Adapter.Slide(R.drawable.img3,"Destination", getString(R.string.lorem)));
+        slides.add(new Adapter.Slide(R.drawable.img2, "Navigation", getString(R.string.lorem2)));
+        slides.add(new Adapter.Slide(R.drawable.img3, "Destination", getString(R.string.lorem3)));
         final Adapter adapter = new Adapter(this, slides);
         viewPager.setAdapter(adapter);
 
