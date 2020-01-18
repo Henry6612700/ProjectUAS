@@ -1,16 +1,17 @@
 package com.example.myapplication1;
 
+
 import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -22,6 +23,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     Context context;
     ArrayList<PlaceModel> models;
+    DetailFragment detailFragment = new DetailFragment();
 
     boolean showShimmer = true;
     int SHIMMER_ITEM_NUMBER = 7; //number of item shown while loading
@@ -38,7 +40,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+
         if (showShimmer) {
             holder.shimmerFrameLayout.startShimmer(); //start shimmer animation
         } else{
@@ -53,16 +56,21 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
             holder.image.setBackground(null);
             Picasso.get().load(models.get(position).getImage()).into(holder.image);
-//            holder.linear.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent = new Intent(context, DetailActivity.class);
-//                    intent.putExtra("image",models.get(position).getImage()); //put bitmap image as array of bytes
-//                    intent.putExtra("name", models.get(position).getFood_name());
-//                    intent.putExtra("detail", models.get(position).getFood_detail());
-//                    context.startActivity(intent);
-//                }
-//            });
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Bundle args = new Bundle();
+//                    This is how you do putExtra from fragment to fragment
+                    args.putString("name",models.get(position).getNama());
+                    args.putString("detail",models.get(position).getDetail());
+                    args.putString("image",models.get(position).getImage());
+                    detailFragment.setArguments(args);
+
+                    ((FragmentActivity)view.getContext()).getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out)
+                            .replace(R.id.homeFrame,detailFragment).addToBackStack(null).commit();
+                }
+            });
         }
     }
 
@@ -87,6 +95,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                 cardView = itemView.findViewById(R.id.cardView);
             }
     }
+
 }
 
 
