@@ -1,11 +1,14 @@
 package com.example.myapplication1;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -13,6 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -50,12 +54,13 @@ public class HomeFragment extends Fragment {
         animateSlider();
     }
 
+
     private void animateSlider() {
         List<SliderAdapter.Slider> sliderAdapters = new ArrayList<>();
 
-        sliderAdapters.add(new SliderAdapter.Slider(R.drawable.medan1,"WALK + \nEXPLORE",getString(R.string.lorem)));
-        sliderAdapters.add(new SliderAdapter.Slider(R.drawable.medan2,"WALK + \nEXPLORE",getString(R.string.lorem)));
-        sliderAdapters.add(new SliderAdapter.Slider(R.drawable.medan3,"WALK + \nEXPLORE",getString(R.string.lorem)));
+        sliderAdapters.add(new SliderAdapter.Slider(R.drawable.medan1,"WALK + \nEXPLORE",getString(R.string.hf1)));
+        sliderAdapters.add(new SliderAdapter.Slider(R.drawable.medan2,"DISCOVER \nLOCATIONS",getString(R.string.hf2)));
+        sliderAdapters.add(new SliderAdapter.Slider(R.drawable.medan3,"ADDITIONAL \nINFORMATION",getString(R.string.hf3)));
         final SliderAdapter sliderAdapter = new SliderAdapter(mContext,sliderAdapters);
 
         viewPagerHome.setAdapter(sliderAdapter);

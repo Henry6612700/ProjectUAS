@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -65,11 +66,11 @@ public class UserFragment extends Fragment {
         btnLogout = view.findViewById(R.id.btn_sign_out);
         appCompatActivity = ((AppCompatActivity)getActivity());
 
-        String photo = String.valueOf(user.getPhotoUrl());
+//        String photo = String.valueOf(user.getPhotoUrl());
 
         mEmail.setText(user.getEmail());
         mNama.setText(user.getDisplayName());
-        Picasso.get().load(photo).into(iProfile);
+//        Picasso.get().load(photo).into(iProfile);
 
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
