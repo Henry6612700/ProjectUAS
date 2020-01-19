@@ -65,6 +65,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                     args.putString("name",models.get(position).getNama());
                     args.putString("detail",models.get(position).getDetail());
                     args.putString("image",models.get(position).getImage());
+                    args.putString("location",models.get(position).getLokasi());
+                    args.putString("direction",models.get(position).getDirect());
                     detailFragment.setArguments(args);
 
                     ((FragmentActivity)view.getContext()).getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out)
