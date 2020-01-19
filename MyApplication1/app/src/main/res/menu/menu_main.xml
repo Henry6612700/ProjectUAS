@@ -18,7 +18,7 @@
 <!--    Ini untuk menunjukkan lokasi user-->
     <item
         android:id="@+id/miGlobe"
-        android:icon="@drawable/ic_globe"
+        android:icon="@drawable/ic_location"
         android:title="Map"/>
 
 <!--    Ini untuk nyari global-->

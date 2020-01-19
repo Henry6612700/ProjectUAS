@@ -2,6 +2,9 @@ package com.example.myapplication1;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -30,23 +33,31 @@ public class DashboardActivity extends AppCompatActivity implements BottomNaviga
 
     }
 
+    private void openFragment(final Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setCustomAnimations(R.anim.fade_in,R.anim.fade_out);
+        transaction.replace(R.id.frameLayout,fragment);
+        transaction.commit();
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.miHome:
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.frameLayout,homeFragment).commit();
+                openFragment(homeFragment);
                 return true;
             case R.id.miCompass:
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.frameLayout,exploreFragment).commit();
+                openFragment(exploreFragment);
                 return true;
             case R.id.miSearch:
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.frameLayout,searchFragment).commit();
+                openFragment(searchFragment);
                 return true;
             case R.id.miProfile:
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.frameLayout,userFragment).commit();
+                openFragment(userFragment);
                 return true;
             case R.id.miGlobe:
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.frameLayout,globeFragment).commit();
+                openFragment(globeFragment);
                 return true;
         }
         return false;
