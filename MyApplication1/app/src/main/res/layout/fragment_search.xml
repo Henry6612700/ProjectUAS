@@ -7,9 +7,14 @@
     android:background="@color/search">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <SearchView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:id="@+id/sv_location"
+        android:queryHint="Search..."
+        android:iconifiedByDefault="false"
+        android:layout_margin="10dp"
+        android:elevation="5dp"
+        android:background="@drawable/bg_round"/>
 
 </FrameLayout>
