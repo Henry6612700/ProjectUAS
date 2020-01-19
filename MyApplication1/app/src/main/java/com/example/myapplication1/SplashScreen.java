@@ -11,7 +11,7 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreen extends AppCompatActivity {
-    private int waktu_loading = 1000;
+    private int waktu_loading = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
 
-                //pindah setelah 2 detik
+                //pindah setelah 3 detik
                 Intent home = new Intent(SplashScreen.this, OnboardingScreen.class);
                 startActivity(home);
                 finish();
