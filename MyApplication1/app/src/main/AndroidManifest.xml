@@ -16,7 +16,6 @@
         <activity android:name=".OnboardingScreen" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".LocationActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

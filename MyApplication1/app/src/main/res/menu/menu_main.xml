@@ -21,13 +21,6 @@
         android:icon="@drawable/ic_location"
         android:title="Map"/>
 
-<!--    Ini untuk nyari global-->
-    <item
-        android:id="@+id/miSearch"
-        android:icon="@drawable/ic_search"
-        android:title="Search">
-    </item>
-
     <item
         android:id="@+id/miProfile"
         android:icon="@drawable/ic_user"

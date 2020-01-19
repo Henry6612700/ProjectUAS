@@ -10,13 +10,14 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.onesignal.OneSignal;
 
 public class DashboardActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     BottomNavigationView bottomNavigationView;
 //    Initiate fragment
     UserFragment userFragment = new UserFragment();
     HomeFragment homeFragment = new HomeFragment();
-    SearchFragment searchFragment = new SearchFragment();
+//    SearchFragment searchFragment = new SearchFragment();
     ExploreFragment exploreFragment = new ExploreFragment();
     GlobeFragment globeFragment = new GlobeFragment();
 
@@ -24,6 +25,11 @@ public class DashboardActivity extends AppCompatActivity implements BottomNaviga
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        //init onesignal
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
 
         bottomNavigationView = findViewById(R.id.bottomNav);
 
@@ -50,9 +56,9 @@ public class DashboardActivity extends AppCompatActivity implements BottomNaviga
             case R.id.miCompass:
                 openFragment(exploreFragment);
                 return true;
-            case R.id.miSearch:
-                openFragment(searchFragment);
-                return true;
+//            case R.id.miSearch:
+//                openFragment(searchFragment);
+//                return true;
             case R.id.miProfile:
                 openFragment(userFragment);
                 return true;
