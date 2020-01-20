@@ -25,11 +25,6 @@ public class DashboardActivity extends AppCompatActivity implements BottomNaviga
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        //init onesignal
-        OneSignal.startInit(this)
-                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-                .unsubscribeWhenNotificationsAreDisabled(true)
-                .init();
 
         bottomNavigationView = findViewById(R.id.bottomNav);
 
@@ -56,9 +51,6 @@ public class DashboardActivity extends AppCompatActivity implements BottomNaviga
             case R.id.miCompass:
                 openFragment(exploreFragment);
                 return true;
-//            case R.id.miSearch:
-//                openFragment(searchFragment);
-//                return true;
             case R.id.miProfile:
                 openFragment(userFragment);
                 return true;
