@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.onesignal.OneSignal;
 
 public class DashboardActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     BottomNavigationView bottomNavigationView;
