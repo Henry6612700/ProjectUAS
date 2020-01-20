@@ -42,7 +42,7 @@ public class UserFragment extends Fragment {
     private Context mContext;
     private TextView mEmail,mNama,mKredit;
     private ImageView iProfile;
-    private Button btnLogout;
+    private Button btnLogout,mNear;
 
     public UserFragment() {
         // Required empty public constructor
@@ -65,6 +65,8 @@ public class UserFragment extends Fragment {
         mKredit = view.findViewById(R.id.kredit);
         iProfile = view.findViewById(R.id.imageProfile);
         btnLogout = view.findViewById(R.id.btn_sign_out);
+        mNear = view.findViewById(R.id.nearMe);
+
         appCompatActivity = ((AppCompatActivity)getActivity());
 
         mEmail.setText(user.getEmail());
@@ -97,6 +99,13 @@ public class UserFragment extends Fragment {
                         Toast.makeText(mContext,""+e.getMessage(),Toast.LENGTH_SHORT).show();
                     }
                 });
+            }
+        });
+
+        mNear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),MapsActivity.class));
             }
         });
     }

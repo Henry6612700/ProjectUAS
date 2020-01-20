@@ -46,6 +46,20 @@
         android:fontFamily="@font/poppinsregular"
         android:gravity="center_horizontal"/>
 
+    <Button
+        android:id="@+id/nearMe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="HISTORIC SITE NEAR ME"
+        android:background="@drawable/bg_direct"
+        android:fontFamily="@font/robotoregular"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"/>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
