@@ -279,8 +279,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         builder.setContentTitle(title)
                 .setContentText(content)
                 .setAutoCancel(false)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher));
+                .setSmallIcon(R.drawable.ic_stat_name)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.ic_stat_name));
 
         Notification notification = builder.build();
         notificationManager.notify(new Random().nextInt(),notification);
